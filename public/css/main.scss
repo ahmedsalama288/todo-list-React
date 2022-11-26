@@ -1,0 +1,322 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: hsl(0, 0%, 96%);
+}
+$mainDarkModeColor: hsl(235deg, 24%, 19%);
+
+main {
+  & {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    &.dark-mode {
+      background-color: hsl(235, 21%, 11%);
+      .input-con {
+        background-color: hsl(235deg, 24%, 19%);
+        > input {
+          background-color: hsl(235deg, 24%, 19%);
+          color: hsl(236deg, 33%, 92%);
+        }
+        > span {
+          border-color: hsl(237deg, 14%, 26%);
+        }
+      }
+    }
+  }
+  > .background-sec {
+    width: 100%;
+    height: 0px;
+    > img {
+      width: 100%;
+      height: 300px;
+      background-size: cover;
+    }
+  }
+  > .container {
+    width: 530px;
+    height: 100%;
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 80px;
+    > h1 {
+      font-size: 40px;
+      color: white;
+      letter-spacing: 15px;
+    }
+    .mode {
+      cursor: pointer;
+    }
+    img {
+      width: 26px;
+    }
+  }
+  .input-con {
+    margin-top: 40px;
+    margin-bottom: 20px;
+    background-color: white;
+    width: 100%;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+
+    > span {
+      display: inline-block;
+      margin-left: 23px;
+      margin-right: 20px;
+      width: 25px;
+      height: 25px;
+      border-radius: 50%;
+      border: 1px solid hsl(233, 11%, 84%);
+    }
+    > input {
+      width: 80%;
+      height: 100%;
+      font-size: 18px;
+      caret-color: hsl(220, 98%, 61%);
+      color: hsl(237, 14%, 26%);
+      border: none;
+      font-family: "Josefin Sans", sans-serif;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  ul {
+    width: 100%;
+    list-style: none;
+    > li {
+      & {
+        position: relative;
+        background-color: white;
+        max-width: 100%;
+        width: 100%;
+        height: 60px;
+        display: flex;
+        align-items: center;
+      }
+      &:not(:last-child)::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 1px;
+        background-color: hsl(236, 33%, 92%);
+        bottom: 0px;
+      }
+      &:first-child {
+        border-radius: 6px 6px 0px 0px;
+      }
+      &:last-child {
+        border-radius: 0px 0px 6px 6px;
+      }
+      &.options {
+        height: 50px;
+        box-shadow: 0px 5px 10px 2px hsl(0, 0%, 93%);
+
+        > p {
+          font-size: 13px;
+          margin-left: 23px;
+          margin-right: 60px;
+          color: hsl(236, 9%, 61%);
+        }
+
+        span {
+          transition: 0.2s;
+        }
+
+        .options-functions {
+          width: 180px;
+          margin: auto;
+          display: flex;
+          justify-content: space-between;
+          color: hsl(236, 9%, 61%);
+          > span {
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: 700;
+            &:not(span.selected-op):hover {
+              color: hsl(237deg, 14%, 26%);
+            }
+          }
+        }
+
+        #clear-completed {
+          cursor: pointer;
+          margin-left: auto;
+          margin-right: 25px;
+          font-size: 13px;
+
+          color: hsl(236, 9%, 61%);
+          &:hover {
+            color: hsl(237deg, 14%, 26%);
+          }
+        }
+        .selected-op {
+          color: hsl(220, 98%, 61%);
+        }
+      }
+      .completed {
+        & {
+          cursor: pointer;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-left: 23px;
+          margin-right: 20px;
+          width: 25px;
+          height: 25px;
+          padding: 1px;
+          background-color: hsl(233deg, 11%, 84%);
+          border-radius: 50%;
+        }
+
+        &:hover {
+          background-image: linear-gradient(
+            130deg,
+            hsl(192, 100%, 67%),
+            hsl(280, 87%, 65%)
+          );
+        }
+
+        &.active-span {
+          background-image: linear-gradient(
+            130deg,
+            hsl(192, 100%, 67%),
+            hsl(280, 87%, 65%)
+          );
+          > span {
+            background-color: transparent;
+          }
+          & + p {
+            text-decoration: line-through;
+            color: hsl(233, 11%, 84%);
+          }
+        }
+
+        > span {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background-color: white;
+        }
+      }
+      > p {
+        cursor: pointer;
+        color: hsl(237deg, 14%, 26%);
+      }
+      &:hover {
+        > .delete {
+          opacity: 1;
+        }
+      }
+      .delete {
+        opacity: 0;
+        transition: 0.3s;
+        cursor: pointer;
+        width: 15px;
+        height: 15px;
+        margin-left: auto;
+        margin-right: 25px;
+        background-image: url(./images/icon-cross.svg);
+        background-size: cover;
+      }
+    }
+    &.only-one-li {
+      > li.options {
+        border-radius: 6px;
+        box-shadow: none;
+      }
+    }
+    &.dark-mode {
+      > li {
+        background-color: $mainDarkModeColor;
+        &::before {
+          background-color: hsl(237, 14%, 26%);
+        }
+        > .completed {
+          background-color: hsl(237, 14%, 26%);
+          > span {
+            background-color: $mainDarkModeColor;
+          }
+          &.active-span {
+            & + p {
+              color: hsl(233, 14%, 35%);
+            }
+            > span {
+              background-color: transparent;
+            }
+          }
+        }
+        > p {
+          color: hsl(236, 33%, 92%);
+        }
+        &.active-span {
+          & + p {
+            color: hsl(233, 14%, 35%);
+          }
+        }
+        &.options {
+          box-shadow: none;
+          .options-functions > span:not(.selected-op):hover,
+          #clear-completed:hover {
+            color: hsl(236, 33%, 92%);
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 530px) {
+    & {
+      > .background-sec {
+        > img {
+          height: 230px;
+        }
+      }
+      >.container {
+        max-width: 100%;
+        padding: 0px 20px;
+        > header {
+          margin-top: 55px;
+          > h1 {
+            font-size: 32px;
+          }
+        }
+        > .input-con {
+          max-width: 100%;
+          height: 55px;
+          > input {
+            max-width: 75%;
+          }
+        }
+
+        ul {
+          > li {
+            height: 60px;
+            > .delete {
+              opacity: 1;
+            }
+            &.options {
+              .options-functions {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,279 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Josefin Sans", sans-serif;
+  background-color: hsl(0deg, 0%, 96%);
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+}
+main.dark-mode {
+  background-color: hsl(235deg, 21%, 11%);
+}
+main.dark-mode .input-con {
+  background-color: hsl(235deg, 24%, 19%);
+}
+main.dark-mode .input-con > input {
+  background-color: hsl(235deg, 24%, 19%);
+  color: hsl(236deg, 33%, 92%);
+}
+main.dark-mode .input-con > span {
+  border-color: hsl(237deg, 14%, 26%);
+}
+main > .background-sec {
+  width: 100%;
+  height: 0px;
+}
+main > .background-sec > img {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+}
+main > .container {
+  width: 530px;
+  height: 100%;
+}
+main header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 80px;
+}
+main header > h1 {
+  font-size: 40px;
+  color: white;
+  letter-spacing: 15px;
+}
+main header .mode {
+  cursor: pointer;
+}
+main header img {
+  width: 26px;
+}
+main .input-con {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 100%;
+  height: 63px;
+  display: flex;
+  align-items: center;
+  border-radius: 6px;
+}
+main .input-con > span {
+  display: inline-block;
+  margin-left: 23px;
+  margin-right: 20px;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 1px solid hsl(233deg, 11%, 84%);
+}
+main .input-con > input {
+  width: 80%;
+  height: 100%;
+  font-size: 18px;
+  caret-color: hsl(220deg, 98%, 61%);
+  color: hsl(237deg, 14%, 26%);
+  border: none;
+  font-family: "Josefin Sans", sans-serif;
+}
+main .input-con > input:focus {
+  outline: none;
+}
+main ul {
+  width: 100%;
+  list-style: none;
+}
+main ul > li {
+  position: relative;
+  background-color: white;
+  max-width: 100%;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+main ul > li:not(:last-child)::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background-color: hsl(236deg, 33%, 92%);
+  bottom: 0px;
+}
+main ul > li:first-child {
+  border-radius: 6px 6px 0px 0px;
+}
+main ul > li:last-child {
+  border-radius: 0px 0px 6px 6px;
+}
+main ul > li.options {
+  height: 50px;
+  box-shadow: 0px 5px 10px 2px hsl(0deg, 0%, 93%);
+}
+main ul > li.options > p {
+  font-size: 13px;
+  margin-left: 23px;
+  margin-right: 60px;
+  color: hsl(236deg, 9%, 61%);
+}
+main ul > li.options span {
+  transition: 0.2s;
+}
+main ul > li.options .options-functions {
+  width: 180px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  color: hsl(236deg, 9%, 61%);
+}
+main ul > li.options .options-functions > span {
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 700;
+}
+main ul > li.options .options-functions > span:not(span.selected-op):hover {
+  color: hsl(237deg, 14%, 26%);
+}
+main ul > li.options #clear-completed {
+  cursor: pointer;
+  margin-left: auto;
+  margin-right: 25px;
+  font-size: 13px;
+  color: hsl(236deg, 9%, 61%);
+}
+main ul > li.options #clear-completed:hover {
+  color: hsl(237deg, 14%, 26%);
+}
+main ul > li.options .selected-op {
+  color: hsl(220deg, 98%, 61%);
+}
+main ul > li .completed {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 23px;
+  margin-right: 20px;
+  width: 25px;
+  height: 25px;
+  padding: 1px;
+  background-color: hsl(233deg, 11%, 84%);
+  border-radius: 50%;
+}
+main ul > li .completed:hover {
+  background-image: linear-gradient(130deg, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+}
+main ul > li .completed.active-span {
+  background-image: linear-gradient(130deg, hsl(192deg, 100%, 67%), hsl(280deg, 87%, 65%));
+}
+main ul > li .completed.active-span > span {
+  background-color: transparent;
+}
+main ul > li .completed.active-span + p {
+  text-decoration: line-through;
+  color: hsl(233deg, 11%, 84%);
+}
+main ul > li .completed > span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: white;
+}
+main ul > li > p {
+  cursor: pointer;
+  color: hsl(237deg, 14%, 26%);
+}
+main ul > li:hover > .delete {
+  opacity: 1;
+}
+main ul > li .delete {
+  opacity: 0;
+  transition: 0.3s;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  margin-left: auto;
+  margin-right: 25px;
+  background-image: url(./images/icon-cross.svg);
+  background-size: cover;
+}
+main ul.only-one-li > li.options {
+  border-radius: 6px;
+  box-shadow: none;
+}
+main ul.dark-mode > li {
+  background-color: hsl(235deg, 24%, 19%);
+}
+main ul.dark-mode > li::before {
+  background-color: hsl(237deg, 14%, 26%);
+}
+main ul.dark-mode > li > .completed {
+  background-color: hsl(237deg, 14%, 26%);
+}
+main ul.dark-mode > li > .completed > span {
+  background-color: hsl(235deg, 24%, 19%);
+}
+main ul.dark-mode > li > .completed.active-span + p {
+  color: hsl(233deg, 14%, 35%);
+}
+main ul.dark-mode > li > .completed.active-span > span {
+  background-color: transparent;
+}
+main ul.dark-mode > li > p {
+  color: hsl(236deg, 33%, 92%);
+}
+main ul.dark-mode > li.active-span + p {
+  color: hsl(233deg, 14%, 35%);
+}
+main ul.dark-mode > li.options {
+  box-shadow: none;
+}
+main ul.dark-mode > li.options .options-functions > span:not(.selected-op):hover,
+main ul.dark-mode > li.options #clear-completed:hover {
+  color: hsl(236deg, 33%, 92%);
+}
+@media (max-width: 530px) {
+  main > .background-sec > img {
+    height: 230px;
+  }
+  main > .container {
+    max-width: 100%;
+    padding: 0px 20px;
+  }
+  main > .container > header {
+    margin-top: 55px;
+  }
+  main > .container > header > h1 {
+    font-size: 32px;
+  }
+  main > .container > .input-con {
+    max-width: 100%;
+    height: 55px;
+  }
+  main > .container > .input-con > input {
+    max-width: 75%;
+  }
+  main > .container ul > li {
+    height: 60px;
+  }
+  main > .container ul > li > .delete {
+    opacity: 1;
+  }
+  main > .container ul > li.options .options-functions {
+    display: none;
+  }
+}/*# sourceMappingURL=main.css.map */
